@@ -53,14 +53,14 @@ namespace radixSortCartoon
             for (int i = 0; i < range; ++i)
                 lists[i] = new ArrayList();
 
-            for (int bitNum = 0; bitNum < maxLength; ++bitNum)
+            for (int digNum = 0; digNum < maxLength; ++digNum)
             {
 
                 //распределение по спискам от 0 до 9
                 for (int i = 0; i < arr.Length; ++i)
                 {
                     //выделяем цифру на текущей позиции из номера символа и кладем символ в список
-                    int temp = ((int)arr[i] % (int)Math.Pow(range, bitNum + 1)) / (int)Math.Pow(range, bitNum);
+                    int temp = ((int)arr[i] % (int)Math.Pow(range, digNum + 1)) / (int)Math.Pow(range, digNum);
                     lists[temp].Add(arr[i]);
                 }
                 zero.Clear();
@@ -137,7 +137,7 @@ namespace radixSortCartoon
                     }
                 }
 
-                MessageBox.Show("For " + (bitNum + 1) + " code digit:");
+                MessageBox.Show("For " + (digNum + 1) + " code digit:");
 
                 for (int i = 0; i < range; ++i)
                     lists[i].Clear();   //очистка списков элементов по разрядам
