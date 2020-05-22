@@ -63,7 +63,8 @@ namespace radixSortCartoon
                     int temp = ((int)arr[i] % (pow * range)) / pow;
                     lists[temp].Add(arr[i]);
                 }
-                pow *= range;
+                pow *= range;   //увеличиваем степень
+
                 zero.Clear();
                 one.Clear();
                 two.Clear();
