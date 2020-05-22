@@ -53,26 +53,17 @@ namespace radixSortCartoon
             for (int i = 0; i < range; ++i)
                 lists[i] = new ArrayList();
 
-            int getPow(int sysBase, int pow)
-            {
-                int b = 1;
-                for (int i = 0; i < pow; ++i)
-                {
-                    b *= sysBase;
-                }
-                return b;
-            }
-
+            int pow = 1;    //степень, нужная для вычисления текущего символа
             for (int digNum = 0; digNum < maxLength; ++digNum)
             {
-
                 //распределение по спискам от 0 до 9
                 for (int i = 0; i < arr.Length; ++i)
                 {
                     //выделяем цифру на текущей позиции из номера символа и кладем символ в список
-                    int temp = ((int)arr[i] % getPow(range, digNum + 1)) / getPow(range, digNum);
+                    int temp = ((int)arr[i] % (pow * range)) / pow;
                     lists[temp].Add(arr[i]);
                 }
+                pow *= range;
                 zero.Clear();
                 one.Clear();
                 two.Clear();
